@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"flag"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -62,7 +61,6 @@ func Koguma() {
 			if err != nil {
 				log.Print(err)
 			}
-			fmt.Printf("%s %d\n", d.Path, freeDisk)
 			if freeDisk <= d.Threshold {
 				status = "down"
 			}

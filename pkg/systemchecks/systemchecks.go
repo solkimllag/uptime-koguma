@@ -1,7 +1,6 @@
 package systemchecks
 
 import (
-	"fmt"
 	"runtime"
 	"syscall"
 )
@@ -51,6 +50,5 @@ func GetFreeSpace(path string) (uint, error) {
 
 	size := float64(fs.Blocks>>MB_SHIFT) * float64(fs.Bsize)
 	free := float64(fs.Bfree>>MB_SHIFT) * float64(fs.Bsize)
-	fmt.Printf("free: %f total: %f\n", free, size)
 	return uint(free / size * 100), nil
 }
