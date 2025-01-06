@@ -1,0 +1,13 @@
+[Unit]
+Description=Uptime Koguma
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=mik
+ExecStart=/home/mik/src/uptime-koguma/koguma -f /home/mik/src/uptime-koguma/configs/koguma.conf
+
+[Install]
+WantedBy=multi-user.target
