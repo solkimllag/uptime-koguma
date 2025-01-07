@@ -1,7 +1,7 @@
 # uptime-koguma
 remote agent for uptime-kuma
 
-Currently in beta. This is a very simple remote push agent to work with Uptime Kuma. An example use case is to monitor linux boxes running behind a firewall. Let's say, you have your Uptime Kuma running in a cloud vps but you want to monitor your homelab without opening ports on your firewall. The push agent will periodically make an http GET request to Uptime Kuma reporting either status=up or status=down. At the moment, it is able to check cpu load average, free memory and available disk space. If cpu load average exceeds the configured limit or if the available free memory drops below the limit or if the avilable space on the file system is below the configured limit, then status=down will be reported. Otherwise if all three are within limits status=up will be sent.
+Currently this is a proof of concept. This is a very simple remote push agent to work with Uptime Kuma. An example use case is to monitor linux boxes running behind a firewall. Let's say, you have your Uptime Kuma running in a cloud vps but you want to monitor your homelab without opening ports on your firewall. The push agent will periodically make an http GET request to Uptime Kuma reporting either status=up or status=down. At the moment, it is able to check cpu load average, free memory and available disk space. If cpu load average exceeds the configured limit or if the available free memory drops below the limit or if the avilable space on the file system is below the configured limit, then status=down will be reported. Otherwise if all three are within limits status=up will be sent.
 ### How to build:
 1) Clone the repo
 2) cd into uptime-koguma folder
@@ -42,7 +42,7 @@ Config parameters:
   - threshold: Uint. Percentage, without the % sign. If the available disk space is below this, it will trigger status=down
   
 ### How to run:
-1) On a box with systemd, copy configs/koguma.service file into /etc/systemd/system folder and modify the path to the koguma executeable and the path to koguma.conf files.
+1) On a box with systemd, copy configs/koguma.service file next to your systemd service files and modify the path to the koguma executeable and the path to koguma.conf files.
 ```
 [mik@mik uptime-koguma] (master)$ cat configs/koguma.service
 [Unit]
@@ -68,4 +68,8 @@ $ systemctl enable koguma.service
 $ systemctl start koguma.service
 ```
 
-
+### I am considering adding some of these features:
+[ ] Cpu steal check
+[ ] Cpu wait check
+[ ] Http get request, to check service running on localhost
+[ ] Check if a specific file exists or not. A helper script would either create or delete this file. This would allow extending the functionality.
