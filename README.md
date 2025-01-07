@@ -69,7 +69,7 @@ $ systemctl start koguma.service
 ```
 
 ### I am considering adding some of these features:
-[ ] Cpu steal check
-[ ] Cpu wait check
-[ ] Http get request, to check service running on localhost
-[ ] Check if a specific file exists or not. A helper script would either create or delete this file. This would allow extending the functionality.
+- Cpu steal check
+- Cpu wait check
+- Http get request, to check service running on localhost
+- Check if a specific file exists or not. A helper script would either create or delete this file. This would allow extending the functionality.
