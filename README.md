@@ -14,7 +14,7 @@ $ go build -o koguma
 2) Edit the config file configs/koguma.conf:
 ```
 {
-  "push_url": "https://cyclops.ddns.net/api/push/YDCd3KsEnz?status=up&msg=OK&ping=",
+  "push_url": "https://example.com/api/push/YDCd3KsEnz?status=up&msg=OK&ping=",
   "heartbeat_interval": 60,
   "cpu_threshold": 70,
   "cpu_load_average_type": 15,
